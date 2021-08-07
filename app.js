@@ -1,3 +1,10 @@
+const randomFunc = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    symbol: getRandomSymbol
+};
+
 // Generator functions https://net-comber.com/charset.html
 
 function getRandomLower() {
@@ -16,5 +23,3 @@ function getSymbol() {
     const symbols = '!@#$%^&*()_-+=?/>,<~`';
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
-
-console.log(getSymbol());
