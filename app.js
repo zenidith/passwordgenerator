@@ -1,9 +1,9 @@
 const resultEl = document.getElementById('result');
 const lengthEl = document.getElementById('length');
-const upperEl = document.getElementById('uppernumberEl');
-const lowerEl = document.getElementById('lowerupperEl');
-const numberEl = document.getElementById('numbersymbolEl');
-const symbolsEl = document.getElementById('symbolgenerateEl');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numberEl = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generateclipboardEl');
 const clipboardEl = document.getElementById('clipboard');
 
@@ -13,6 +13,16 @@ const randomFunc = {
     number: getRandomNumber,
     symbol: getRandomSymbol
 };
+
+generate.addEventListener('click', () => {
+    const length = +lengthEl.value;
+    const hasUpper = uppercaseEl.checked;
+    const hasLower = lowercaseEl.checked;
+    const hasNumber = numberEl.checked;
+    const hasSymbol = symbolsEl.checked;
+
+    console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+})
 
 // Generator functions https://net-comber.com/charset.html
 
@@ -24,11 +34,11 @@ function getRandomUpper() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
-function getNumber() {
+function getRandomNumber() {
     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-function getSymbol() {
+function getRandomSymbol() {
     const symbols = '!@#$%^&*()_-+=?/>,<~`';
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
