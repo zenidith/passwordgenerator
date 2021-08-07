@@ -14,6 +14,7 @@ const randomFunc = {
     symbol: getRandomSymbol
 };
 
+// Generate event listen
 generate.addEventListener('click', () => {
     const length = +lengthEl.value;
     const hasUpper = uppercaseEl.checked;
@@ -21,8 +22,39 @@ generate.addEventListener('click', () => {
     const hasNumber = numberEl.checked;
     const hasSymbol = symbolsEl.checked;
 
-    console.log(hasLower, hasUpper, hasNumber, hasSymbol);
-})
+    resultEl.innerText = generatePassword(
+        hasLower, 
+        hasUpper, 
+        hasNumber, 
+        hasSymbol, 
+        length
+    );
+});
+
+// Generate Password function
+function generatePassword(lower, upper, number, symbol, length) {
+    // 1. innit password variable
+    // 2. filter out unchecked types
+    // 3. loop over the length then call the generator function for each type
+    // 4. add the final password to the password variable   
+
+    let generatePassword = '';
+    const typesCount = upper +  lower + number + symbol;
+    const typesArr = [{upper}, {lower}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+
+    if(typesCount === 0) {
+        return '';
+    }
+
+    for(let i = 0; i < length; i+= typesCount) {
+        typesArr.forEach(type => {
+            const funcName = Object.keys(type)[0];
+            generatePassword += randomFunc[funcName]();
+        })
+    }
+
+    console.log(generatePassword); 
+}   
 
 // Generator functions https://net-comber.com/charset.html
 
