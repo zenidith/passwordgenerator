@@ -31,6 +31,23 @@ generate.addEventListener('click', () => {
     );
 });
 
+// Copy to clipboard
+clipboardEl.addEventListener('click', () => {
+    const textarea = document.createElement('textarea');
+    const password = resultEl.innerText;
+
+    if(!password) {
+        return;
+    }
+
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+    alert('Password copied to clipboard!');
+});
+
 // Generate Password function
 function generatePassword(lower, upper, number, symbol, length) {
     // 1. innit password variable
@@ -49,11 +66,12 @@ function generatePassword(lower, upper, number, symbol, length) {
     for(let i = 0; i < length; i+= typesCount) {
         typesArr.forEach(type => {
             const funcName = Object.keys(type)[0];
-            generatePassword += randomFunc[funcName]();
+            generatePassword += randomFunc[funcName](); 
         })
     }
 
-    console.log(generatePassword); 
+    const finalPassword = generatePassword.slice(0, length);
+    return finalPassword; 
 }   
 
 // Generator functions https://net-comber.com/charset.html
