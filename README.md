@@ -8,8 +8,6 @@ In this application, I was able to go through a ton of different JS functions an
 - arrow functions => {}
 - used an external randomColor() code in order to generate 'attractive' colours, however they still look a bit garish and I need to adjust the hues in the next iteration.  - installed from [here](https://randomcolor.lllllllllllllllll.com/)
 
-In regards to the design, I 
-
 Please try out the program [here!](https://zenidith.github.io/passwordgenerator/)
 
 Happy coding!
