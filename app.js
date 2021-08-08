@@ -10,9 +10,10 @@ const allColors = document.getElementById('body-colors');
 
 function generateBodyColors() {
     // let hex = '#' + Math.floor(Math.random()*16777215).toString(16)
-    document.getElementById("body-color").style.backgroundColor = randomColor();
-    document.getElementById("container-color").style.backgroundColor = randomColor();
-
+    document.getElementById("body-color").style.backgroundColor = randomColor({hue: 'orange'});
+    document.getElementById("container-color").style.backgroundColor = randomColor({hue: 'yellow'});
+    document.querySelector(".btn").style.backgroundColor = randomColor({hue: 'orange'});
+    document.getElementById("generate").style.backgroundColor = randomColor({hue: 'orange'});
 };
 
 generateBodyColors();
