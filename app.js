@@ -6,6 +6,14 @@ const numberEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generateclipboardEl');
 const clipboardEl = document.getElementById('clipboard');
+const allColors = document.getElementById('body-colors')
+
+function generateBodyColors() {
+    let hex = '#' + Math.floor(Math.random()*16777215).toString(16)
+    document.getElementById("body-color").style.backgroundColor = hex;
+};
+
+generateBodyColors();
 
 const randomFunc = {
     lower: getRandomLower,
