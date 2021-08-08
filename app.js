@@ -42,6 +42,7 @@ generate.addEventListener('click', () => {
     );
 });
 
+
 // Copy to clipboard
 clipboardEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea');
@@ -56,8 +57,10 @@ clipboardEl.addEventListener('click', () => {
     textarea.select();
     document.execCommand('copy');
     textarea.remove();
-    alert('Password copied to clipboard!');
+    // alert('Password copied to clipboard!');
+    alert('Password is copied to the clipboard!');
 });
+
 
 // Generate Password function
 function generatePassword(lower, upper, number, symbol, length) {
